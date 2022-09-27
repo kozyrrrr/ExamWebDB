@@ -36,6 +36,7 @@ async function request(url , method='GET', data=null) {
     const headers={};
     let body;
     
+    console.log(body)
     if (data){headers['Content-Type'] = 'application/json';
     body = JSON.stringify(data);
     }
@@ -62,5 +63,33 @@ async function request(url , method='GET', data=null) {
         const PushInfo = await request('/add', 'POST', data)  
         console.log('send: ', PushInfo)
         console.log(firstInput.value)
-        
+        getData();
     });
+
+
+
+   function getData() {
+		fetch('/add', {
+				method: "GET"
+			})
+			.then((data) => data.json())
+			.then((data) => getNames(data))
+            console.log(data)
+	}
+
+
+    
+    function getNames(names) {
+		const namesArray = document.querySelector('.card')
+        console.log(names + 'test')
+		namesArray.innerHTML = ''
+
+		names.forEach((name) => {
+			const nameBlock = document.createElement('div');
+
+			nameBlock.innerHTML = `<p>${name}`
+			
+
+			
+		})
+	}

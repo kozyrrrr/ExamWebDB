@@ -4,11 +4,11 @@ const createNote = async (req, res, next) => {
     try {
     console.log(req.body)
     const Note = {  
-        firstname: req.body.firstname,
-        lastname: req.body.lastname
+        firstname: req.body.firstInput,
+        lastname: req.body.lastInput
     }
     
-    console.log(Note);
+    // console.log(Note);
     await Service.addNote(Note);
     res.send(JSON.stringify(Note))
     next();
@@ -21,7 +21,7 @@ const createNote = async (req, res, next) => {
 
 const sendNote = async (req, res, next) => {
 	try {
-			const data = await Service.sendNote()
+			const data = await Service.getNote()
 			res.send(data)
 			next();
 	} catch(e) {

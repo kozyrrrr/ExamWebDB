@@ -9,7 +9,7 @@
   "main": "app.js",
   
   "type": "module",
-
+  
   "scripts": {
   
     
@@ -36,13 +36,13 @@
   "@supabase/ui": "^0.36.5",
   
     
+  "body-parser": "^1.20.0",
+  
+    
   "dotenv": "^16.0.2",
   
     
   "express": "^4.18.1",
-  
-    
-
   
     
   "nodemon": "^2.0.20"

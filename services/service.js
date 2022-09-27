@@ -13,7 +13,7 @@ const addNote = async Note => {
 	}
 }
 
-const sendNote = async Note => {
+const getNote = async Note => {
 	try {
         const { data, error } = await supabase
   		.from('names')
@@ -28,6 +28,6 @@ const sendNote = async Note => {
 
 export default {
 	addNote,
-    sendNote
+    getNote
 }
 
