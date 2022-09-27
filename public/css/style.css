@@ -1,0 +1,40 @@
+.container{
+    overflow: hidden;
+    min-height: 100vh;
+    
+}
+
+.test{
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-control {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 12px;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-control input:focus {
+    outline: 0;
+}
+
+.form-control.success input {
+    border-color: #09c372;
+}
+
+.error input {
+    border-color: #ff3860;
+}
+
+.form-control .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}
