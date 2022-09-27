@@ -16,16 +16,16 @@
 
 <body>
     <div class="container">
-        <header class="container-fluid bg-secondary p-2">
+        <header class="container-fluid bg-secondary p-2 header">
             <h2 class="text-center text-white">x вариант</h2>
         </header>
         <form id="form" action="/add" method="POST" class="row bg-light text-dark ">
             <div class="col-auto mb-2">
-                <label for="name">Enter your First name</label>
+                <label for="firstname">Enter your First name</label>
                 <input  type="text" class="form-control" id="firstname" name="firstname" placeholder="FirstName">
             </div>
             <div class="col-auto">
-                <label for="name">Enter your Last name</label>
+                <label for="lastname">Enter your Last name</label>
                 <input  type="text" class="form-control" id="lastname" name="lastname" placeholder="LastName">
                 <div class="error"></div>
             </div>
@@ -34,11 +34,9 @@
             </div>
         </form>
         <div class="card" >
-                <div class="">
-                    <p class="card-body bdNames">First Name: Sergey</p>
-                    <p class="card-body bdNames">Last Name: Kozyr</p>
-                </div>
-            </div>
+            <p class="card-body bdNames">First Name: Sergey</p>
+            <p class="card-body bdNames">Last Name: Kozyr</p>
+        </div>
         </div>
         <!-- <footer class="page-footer font-small blue text-light"></footer> -->
         <footer class="container-fluid test bg-secondary p-2 ">

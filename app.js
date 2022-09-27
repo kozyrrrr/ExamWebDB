@@ -3,7 +3,7 @@ import express from 'express'
 import path from 'path'
 import 'dotenv/config'
 import bodyParser from "body-parser";
-
+import router from './routers/router.js';
 import controller from './controllers/controller.js'
 const PORT = process.env.PORT  || 5500
 
@@ -14,6 +14,10 @@ const __dirname = path.resolve(path.dirname(''));
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+
+router.get('/*', (req, res) => {
+    res.render('index.html', 'style.css');
+});
 
 
 app.get('/', (req, res) => {

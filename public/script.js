@@ -2,6 +2,10 @@
 
 
 
+
+
+
+
 // const { default: supabase } = require("../configs/dbConfig.js");
 // form.addEventListener('submit', e => {
 //     e.preventDefault();
@@ -74,22 +78,26 @@ async function request(url , method='GET', data=null) {
 			})
 			.then((data) => data.json())
 			.then((data) => getNames(data))
+           
             console.log(data)
 	}
 
 
     
     function getNames(names) {
-		const namesArray = document.querySelector('.card')
-        console.log(names + 'test')
-		namesArray.innerHTML = ''
+        namess = JSON.stringify(names)
 
-		names.forEach((name) => {
-			const nameBlock = document.createElement('div');
-
-			nameBlock.innerHTML = `<p>${name}`
-			
-
-			
-		})
-	}
+        const namesArray = document.querySelector('.card')
+        namesArray.innerHTML = ''
+    
+        names.forEach((name) => {
+        const nameBlock = document.createElement('div');
+        nameBlock.innerHTML = `
+        <p class = card-body bdNames>FirstName: ${name.firstname} LastName: ${name.lastname}</p>`
+        nameBlock.classList.add('card-body')
+        namesArray.append(nameBlock);
+        })
+        
+        }
+        
+        document.addEventListener("DOMContentLoaded", getData());
