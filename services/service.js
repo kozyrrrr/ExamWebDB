@@ -1,21 +1,19 @@
-import { SupabaseClient } from "@supabase/supabase-js"
-import supabase from "./dbConfig.js"
+import supabase from "../configs/dbConfig.js"
 
-export const fetchData = async () => {
-    let { data, error } = await SupabaseClient
-        .from('ExamDB')
-        .select('*')
-        .order('id', {ascending:true});
-    if (error) console.log('error',error);
-    return data;
-};
+const addNote = async item => {
+	try {
+        const { data, error } = await supabase
+  		.from('names')
+  		.insert(Note)
 
-export const addName = async(firstname, lastname) => {
-    const {data, error} = await SupabaseClient
-        .from('ExamDB')
-        .insert ({firstname: firstname, lastname: lastname})
-        .single();
-    console.log('added', data);
-    if (error) console.log(error);
+		if (error) throw error
+		return data
+	} catch (e) {
+			throw e
+	}
+}
+
+export default {
+	addNote
 }
 

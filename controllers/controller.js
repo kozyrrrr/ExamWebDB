@@ -1,19 +1,23 @@
-const { addName } = require('../services/service')
+import Service from '../service/service.js'
 
-const postName = async (req, res, next) => {
-    const {userName} = req.body;
-    const modelPath = req.file.path;
+const createNote= async (req, res, next) => {
     try {
-        await addNamel(userName, modelPath);
-        res.sendStatus(201);
-        next();
+    const Note = {  
+        firstName: req.body.firstName,
+        lastName: req.body.lastName
+    }
+    
+    await Service.addNote(Note);
+    res.send(`<h1>Данные успешно отправлены</h1>
+    <a href='/index.html'>Back to main page</a>   Данные:` + JSON.stringify(Note))
+    next();
     } catch(e) {
-        console.log(e);
+        console.error(e);
         res.sendStatus(500);
     }
+    
 }
 
-
-module.exports = {
-    postName
+export default {
+	createNote
 }

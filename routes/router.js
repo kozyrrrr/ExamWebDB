@@ -1,25 +1,16 @@
-const express = require('express'),
-  router = express.Router(),
-  Controller = require('../controllers/controller'),
-  Service = require('../services/service')
+import { Router } from "express"
+import path from "path"
+import Controller from "../controllers/controller.js"
 
-router.use(async (req, res, next) => {
-  let data = await Service.getName()
 
-  if (data) {
-    req.name = data
-    next()
-  } else
-    return res
-      .status(500)
-      .send({ message: 'Error while getting names' })
+const __dirname = path.resolve(path.dirname(''))
+const router = Router()
+
+router.post('/add', Controller.createNote);
+
+router.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 
-router
-  .route('/')
-  .get(Controller.getName)
-  .post(Controller.addName)
-  .put(Controller.updateName)
-  .delete(Controller.deleteName)
 
-module.exports = router
+export default router
