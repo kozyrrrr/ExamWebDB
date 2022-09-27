@@ -1,15 +1,16 @@
-import Service from '../service/service.js'
+import Service from '../services/service.js'
 
-const createNote= async (req, res, next) => {
+const createNote = async (req, res, next) => {
     try {
+    console.log(req.body)
     const Note = {  
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
+        firstname: req.body.firstname,
+        lastname: req.body.lastname
     }
     
+    console.log(Note);
     await Service.addNote(Note);
-    res.send(`<h1>Данные успешно отправлены</h1>
-    <a href='/index.html'>Back to main page</a>   Данные:` + JSON.stringify(Note))
+    res.send(JSON.stringify(Note))
     next();
     } catch(e) {
         console.error(e);
@@ -18,6 +19,18 @@ const createNote= async (req, res, next) => {
     
 }
 
+const sendNote = async (req, res, next) => {
+	try {
+			const data = await Service.sendNote()
+			res.send(data)
+			next();
+	} catch(e) {
+			console.error(e);
+			res.sendStatus(500);
+	}
+}
+
 export default {
-	createNote
+	createNote,
+    sendNote
 }
