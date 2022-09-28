@@ -1,60 +1,30 @@
-// // TODO: VALIDATION OF INPUTS
-    
-
-
-// const btn = document.getElementById('save');
-
-
-
-
-
-// firstInput.addEventListener('input', (e) => {
-
-//     if(firstInput  == ' ') {
-//         firstInput.setCustomValidity('Заполните пустые поля!');
-//         firstInput.classList.add('error input');
-//     }
-
-    
-
-// });
 
 async function request(url , method='GET', data=null) {
     try {
     const headers={};
     let body;
-    
-    console.log(body)
     if (data){headers['Content-Type'] = 'application/json';
     body = JSON.stringify(data);
     }
-    console.log('req:', data);
+
     const response = await fetch(url, { method,headers,body })
     return await response;
     } catch(e) {
     console.warn(`Erorr: ${e.message}`);
-    }
-    }
+    }}
 
     const firstInput = document.getElementById('firstname');
     const lastInput = document.getElementById('lastname');
 
-     let data = {
-         firstInput: firstInput,
-         lastInput: 2
-     }
-    
+    let data = {}
+
     form.addEventListener('submit', async e => {
         e.preventDefault();
-         data.firstInput = firstInput.value;
-         data.lastInput = lastInput.value;
-        const PushInfo = await request('/add', 'POST', data)  
-        console.log('send: ', PushInfo)
-        console.log(firstInput.value)
+        data.firstInput = firstInput.value;
+        data.lastInput = lastInput.value;
+        const PushInfo = await request('/add', 'POST', data)
         getData();
     });
-
-
 
    function getData() {
 		fetch('/add', {
@@ -66,8 +36,6 @@ async function request(url , method='GET', data=null) {
             console.log(data)
 	}
 
-
-    
     function getNames(names) {
         namess = JSON.stringify(names)
 
@@ -84,7 +52,6 @@ async function request(url , method='GET', data=null) {
         nameBlock.classList.add('card-body')
         namesArray.append(nameBlock);
         })
+    }
         
-        }
-        
-        document.addEventListener("DOMContentLoaded", getData());
+    document.addEventListener("DOMContentLoaded", getData());

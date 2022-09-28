@@ -7,8 +7,6 @@ const createNote = async (req, res, next) => {
         firstname: req.body.firstInput,
         lastname: req.body.lastInput
     }
-    
-    // console.log(Note);
     await Service.addNote(Note);
     res.send(JSON.stringify(Note))
     next();
