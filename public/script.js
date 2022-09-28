@@ -1,26 +1,10 @@
 // // TODO: VALIDATION OF INPUTS
-
-
-
-
-
-
-
-// const { default: supabase } = require("../configs/dbConfig.js");
-// form.addEventListener('submit', e => {
-//     e.preventDefault();
-//      request('/add', 'POST')
-
     
-// });
+
 
 // const btn = document.getElementById('save');
 
 
-
-// btn.addEventListener('click', async(e)  => {
-//     alert('working');
-// });
 
 
 
@@ -93,7 +77,10 @@ async function request(url , method='GET', data=null) {
         names.forEach((name) => {
         const nameBlock = document.createElement('div');
         nameBlock.innerHTML = `
-        <p class = card-body bdNames>FirstName: ${name.firstname} LastName: ${name.lastname}</p>`
+        <p class =  fs-3 card-body bdNames>
+        <p class= fs-3 text-primary>
+        FirstName: ${name.firstname} 
+        LastName: ${name.lastname}</p>`
         nameBlock.classList.add('card-body')
         namesArray.append(nameBlock);
         })
