@@ -2,7 +2,6 @@ import Service from '../services/service.js'
 
 const createNote = async (req, res, next) => {
     try {
-    console.log(req.body)
     const Note = {  
         firstname: req.body.firstInput,
         lastname: req.body.lastInput
@@ -28,7 +27,21 @@ const sendNote = async (req, res, next) => {
 	}
 }
 
+const deleteNote = async (req, res, next) => {
+	try {
+        console.log(req.params['id'] + 'удален')
+			const data = await Service.deleteNote(req.params['id']);
+           
+			res.send(data)
+			next();
+	} catch(e) {
+			console.error(e);
+			res.sendStatus(500);
+	}
+}
+
 export default {
 	createNote,
-    sendNote
+    sendNote,
+    deleteNote
 }

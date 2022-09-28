@@ -8,6 +8,7 @@ const router = Router()
 
 router.post('/add', Controller.createNote);
 router.get('/add', Controller.sendNote);
+router.delete('/add/:id', Controller.deleteNote);
 
 router.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))

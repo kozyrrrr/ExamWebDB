@@ -1,5 +1,5 @@
 
-import express from 'express'
+import express, { response } from 'express'
 import path from 'path'
 import 'dotenv/config'
 import bodyParser from "body-parser";
@@ -28,7 +28,9 @@ app.get('/', (req, res) => {
 
 app.get('/add', controller.sendNote) 
 
-app.post('/add', controller.createNote);
+app.post('/add', controller.createNote)
+
+app.delete('/add/:id', controller.deleteNote) 
 
 
 app.listen(PORT, () => {

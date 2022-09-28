@@ -26,8 +26,25 @@ const getNote = async Note => {
 	}
 }
 
+const deleteNote = async Note => {
+	try {
+        const { data, error } = await supabase
+  		.from('names')
+  		.delete()
+        .match({id})
+        console.log(req.params.id);
+
+		if (error) throw error
+		return data
+	} catch (e) {
+			throw e
+	}
+}
+
+
 export default {
 	addNote,
-    getNote
+    getNote,
+    deleteNote
 }
 
